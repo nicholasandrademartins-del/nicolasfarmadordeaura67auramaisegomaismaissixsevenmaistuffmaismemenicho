@@ -3,134 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcolheEscola — Portal de Apoio ao Estudante</title>
+    <title>ACOLHE_STREET — Apoio ao Estudante</title>
     <style>
         /* ===================================================
-           ESTILO OLD SCHOOL / Y2K / POP-ART VIBRANTE
+           ESTILO STREETWEAR / URBAN UNDERGROUND
            =================================================== */
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik+Glitch&family=Space+Grotesk:wght@500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Montserrat:wght@700;900&display=swap');
 
         :root {
-            --bg-body: #fe007c;
-            --bg-pattern: #000000;
-            --bg-card: #ffffff;
-            --bg-header: #fffb00;
-            --text-main: #000000;
-            --text-muted: #222222;
-            --border-color: #000000;
+            --bg-body: #0d0e12;
+            --bg-card: #161821;
+            --bg-header: #000000;
+            --text-main: #ffffff;
+            --text-muted: #a0a5b5;
             
-            --primary-color: #00ffff;
-            --accent-color: #fffb00;
-            --purple-color: #7928ca;
-            
-            --border-thick: 3px solid #000000;
-            --shadow-hard: 5px 5px 0px #000000;
-            --shadow-hard-lg: 8px 8px 0px #000000;
+            --neon-green: #ccff00;
+            --neon-cyan: #00f0ff;
+            --neon-pink: #ff0055;
+            --dark-border: #2a2d3d;
+
+            --shadow-glow-green: 0 0 15px rgba(204, 255, 0, 0.4);
+            --shadow-glow-cyan: 0 0 15px rgba(0, 240, 255, 0.4);
+            --shadow-glow-pink: 0 0 15px rgba(255, 0, 85, 0.4);
         }
 
         body.dark-mode {
-            --bg-body: #121212;
-            --bg-card: #1f1f2e;
-            --bg-header: #7928ca;
-            --text-main: #ffffff;
-            --text-muted: #e0e0e0;
-            --border-color: #00ffff;
-            
-            --border-thick: 3px solid #00ffff;
-            --shadow-hard: 5px 5px 0px #ff007f;
-            --shadow-hard-lg: 8px 8px 0px #ff007f;
+            --bg-body: #050507;
+            --bg-card: #0f1017;
+            --bg-header: #000000;
+            --text-main: #f0f0f5;
+            --text-muted: #808595;
+            --dark-border: #33374c;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, color 0.2s;
         }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-body);
-            background-image: radial-gradient(var(--bg-pattern) 15%, transparent 16%);
-            background-size: 20px 20px;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
             color: var(--text-main);
             line-height: 1.5;
             padding-bottom: 60px;
         }
 
         /* ===================================================
-           ADESIVOS (STICKERS OLD SCHOOL)
+           TAGS & STREET BADGES
            =================================================== */
-        .sticker {
+        .street-tag {
             display: inline-block;
-            background: #ffffff;
-            color: #000;
-            font-weight: 900;
-            padding: 4px 10px;
-            border: var(--border-thick);
-            box-shadow: 3px 3px 0px #000;
-            transform: rotate(-3deg);
+            font-family: 'Teko', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            font-size: 0.85rem;
-            user-select: none;
+            padding: 2px 10px;
+            font-weight: 700;
+            border-radius: 2px;
+            color: #000;
+            transform: skew(-10deg);
+            margin-bottom: 8px;
         }
 
-        .sticker.yellow { background: #fffb00; transform: rotate(4deg); }
-        .sticker.cyan { background: #00ffff; transform: rotate(-2deg); }
-        .sticker.pink { background: #ff007f; color: #fff; transform: rotate(5deg); }
-        .sticker.purple { background: #7928ca; color: #fff; transform: rotate(-4deg); }
+        .tag-green { background: var(--neon-green); box-shadow: var(--shadow-glow-green); }
+        .tag-cyan { background: var(--neon-cyan); box-shadow: var(--shadow-glow-cyan); }
+        .tag-pink { background: var(--neon-pink); color: #fff; box-shadow: var(--shadow-glow-pink); }
 
         /* ===================================================
-           CABEÇALHO
+           CABEÇALHO URBAN
            =================================================== */
         .header {
             position: sticky;
             top: 0;
             background-color: var(--bg-header);
-            border-bottom: var(--border-thick);
+            border-bottom: 2px solid var(--neon-green);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
+            padding: 0.8rem 5%;
             z-index: 1000;
-            box-shadow: 0 4px 0 #000;
         }
 
         .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 900;
+            font-family: 'Teko', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: -1px;
-            background: #000;
-            color: #fffb00;
-            padding: 4px 12px;
-            border: 3px solid #000;
-            box-shadow: 4px 4px 0px #ff007f;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px rgba(204, 255, 0, 0.6);
         }
 
         .navbar ul {
             display: flex;
             list-style: none;
-            gap: 1rem;
+            gap: 1.2rem;
         }
 
         .navbar a {
             text-decoration: none;
             color: var(--text-main);
-            font-weight: 900;
+            font-family: 'Teko', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            padding: 0.5rem 0.8rem;
-            background: #fff;
-            border: var(--border-thick);
-            box-shadow: 3px 3px 0px #000;
-            transition: all 0.1s;
+            padding: 0.2rem 0.8rem;
+            border: 1px solid transparent;
+            transition: all 0.2s;
         }
 
         .navbar a:hover, .navbar a.active {
-            background: #00ffff;
-            transform: translate(-2px, -2px);
-            box-shadow: 5px 5px 0px #000;
+            color: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+            background: rgba(0, 240, 255, 0.1);
+            transform: skew(-5deg);
         }
 
         .tools {
@@ -139,22 +132,22 @@
         }
 
         .tools button {
-            background: #fff;
-            border: var(--border-thick);
-            color: #000;
-            padding: 0.4rem 0.7rem;
+            background: var(--bg-card);
+            border: 1px solid var(--dark-border);
+            color: var(--text-main);
+            padding: 0.4rem 0.8rem;
             cursor: pointer;
             font-weight: 900;
-            box-shadow: 3px 3px 0px #000;
+            border-radius: 4px;
         }
 
-        .tools button:active {
-            transform: translate(2px, 2px);
-            box-shadow: 1px 1px 0px #000;
+        .tools button:hover {
+            border-color: var(--neon-green);
+            color: var(--neon-green);
         }
 
         /* ===================================================
-           CONTAINER & HEROS
+           SEÇÕES E CARDS
            =================================================== */
         .container {
             max-width: 950px;
@@ -171,53 +164,56 @@
         }
 
         .hero {
-            background: #fffb00;
-            color: #000;
-            border: var(--border-thick);
-            box-shadow: var(--shadow-hard-lg);
-            padding: 2.5rem 1.5rem;
+            background: linear-gradient(135deg, #161821 0%, #000000 100%);
+            border: 2px solid var(--neon-green);
+            box-shadow: var(--shadow-glow-green);
+            padding: 3rem 1.8rem;
             text-align: center;
             position: relative;
             margin-bottom: 2.5rem;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
         }
 
         .hero h2 {
-            font-size: 2.5rem;
-            font-weight: 900;
+            font-family: 'Teko', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            text-shadow: 3px 3px 0px #00ffff;
+            line-height: 1;
+            color: var(--neon-green);
+            text-shadow: 0 0 12px rgba(204, 255, 0, 0.5);
+            margin-bottom: 0.8rem;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-muted);
             max-width: 650px;
-            margin: 0 auto 1.5rem auto;
-            background: #fff;
-            padding: 10px;
-            border: var(--border-thick);
+            margin: 0 auto 1.8rem auto;
+            font-weight: 700;
         }
 
         .btn-action {
-            background: #ff007f;
-            color: #fff;
-            border: var(--border-thick);
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            font-weight: 900;
+            background: var(--neon-green);
+            color: #000;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-family: 'Teko', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
-            box-shadow: var(--shadow-hard);
-            transition: all 0.1s;
+            box-shadow: var(--shadow-glow-green);
+            transform: skew(-8deg);
+            transition: all 0.2s;
         }
 
         .btn-action:hover {
-            background: #00ffff;
-            color: #000;
-            transform: translate(-3px, -3px);
-            box-shadow: 8px 8px 0px #000;
+            background: var(--neon-cyan);
+            box-shadow: var(--shadow-glow-cyan);
+            transform: skew(-8deg) scale(1.05);
         }
 
         .grid-cards {
@@ -229,72 +225,82 @@
 
         .card {
             background-color: var(--bg-card);
-            border: var(--border-thick);
+            border: 1px solid var(--dark-border);
             padding: 1.5rem;
-            box-shadow: var(--shadow-hard);
             position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .card:hover {
+            border-color: var(--neon-cyan);
         }
 
         .card h3 {
-            font-size: 1.4rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
+            font-family: 'Teko', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            color: var(--neon-cyan);
+            margin-bottom: 0.4rem;
         }
 
         /* ===================================================
-           FORMULÁRIOS E QUIZ
+           FORMULÁRIOS & QUIZ
            =================================================== */
         textarea {
             width: 100%;
             padding: 1rem;
-            background: #fff;
-            color: #000;
-            border: var(--border-thick);
-            box-shadow: var(--shadow-hard);
-            font-size: 1.1rem;
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--dark-border);
+            font-size: 1rem;
             font-weight: 700;
             resize: vertical;
             margin: 1rem 0;
             font-family: inherit;
         }
 
+        textarea:focus {
+            outline: none;
+            border-color: var(--neon-green);
+            box-shadow: var(--shadow-glow-green);
+        }
+
         .quiz-box {
             background: var(--bg-card);
-            border: var(--border-thick);
+            border: 1px solid var(--dark-border);
             padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-hard);
+            margin-bottom: 1.2rem;
         }
 
         .quiz-box p {
             font-size: 1.1rem;
-            font-weight: 900;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
         }
 
         .quiz-box label {
             display: block;
-            margin: 0.6rem 0;
-            padding: 0.6rem;
-            background: rgba(255, 255, 255, 0.5);
-            border: 2px solid #000;
+            margin: 0.5rem 0;
+            padding: 0.6rem 0.8rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--dark-border);
             font-weight: 700;
             cursor: pointer;
         }
 
         .quiz-box label:hover {
-            background: #fffb00;
-            color: #000;
+            border-color: var(--neon-green);
+            color: var(--neon-green);
         }
 
         .alert-box {
-            background: #00ffff;
-            color: #000;
-            border: var(--border-thick);
-            box-shadow: var(--shadow-hard);
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--text-main);
+            border-left: 4px solid var(--neon-cyan);
             padding: 1.5rem;
             margin-top: 1.5rem;
-            font-weight: 700;
+            box-shadow: var(--shadow-glow-cyan);
         }
 
         .hidden { display: none; }
@@ -304,38 +310,41 @@
             text-align: center;
             padding: 2rem;
             background: #000;
-            color: #fff;
-            font-weight: 900;
+            color: var(--text-muted);
+            font-family: 'Teko', sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            border-top: 1px solid var(--dark-border);
             margin-top: 4rem;
-            border-top: var(--border-thick);
         }
 
         #btn-top {
             position: fixed;
             bottom: 25px;
             right: 25px;
-            background: #fffb00;
+            background: var(--neon-green);
             color: #000;
-            border: var(--border-thick);
-            width: 50px;
-            height: 50px;
+            border: none;
+            width: 45px;
+            height: 45px;
             font-size: 1.5rem;
             font-weight: 900;
             cursor: pointer;
-            box-shadow: var(--shadow-hard);
+            box-shadow: var(--shadow-glow-green);
             display: none;
         }
 
         @media (max-width: 768px) {
             .header { flex-direction: column; gap: 1rem; }
             .navbar ul { flex-wrap: wrap; justify-content: center; }
+            .hero h2 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
     <header class="header">
-        <div class="logo">⚡ ACOLHE_ESCOLA</div>
+        <div class="logo">⚡ ACOLHE_STREET</div>
         <nav class="navbar">
             <ul>
                 <li><a href="#" class="nav-link active" onclick="switchTab('inicio')">Início</a></li>
@@ -355,140 +364,139 @@
 
         <section id="inicio" class="tab-content active">
             <div class="hero">
-                <span class="sticker pink" style="position: absolute; top: -15px; left: 10px;">★ ZONA LIVRE ★</span>
-                <span class="sticker cyan" style="position: absolute; bottom: -15px; right: 10px;">RESPEITO É A REGRA</span>
-                <h2>Sua Voz Importa!</h2>
-                <p>Aqui você encontra apoio de verdade, informações diretas e um espaço livre de julgamentos sobre o ambiente escolar.</p>
-                <button class="btn-action" onclick="switchTab('escuta')">Mandar Desabafo 💬</button>
+                <span class="street-tag tag-pink">RESPEITO SEMPRE</span>
+                <h2>VISÃO DE CRIA & RESPEITO NA ESCOLA</h2>
+                <p>O bagulho é reto: ambiente escolar precisa de união e respeito. Aqui você encontra apoio e informação direta contra o bullying.</p>
+                <button class="btn-action" onclick="switchTab('escuta')">ACESSAR A ESCUTA 💬</button>
             </div>
 
-            <div style="background: #fff; border: var(--border-thick); padding: 1.5rem; box-shadow: var(--shadow-hard); margin-bottom: 2rem;">
-                <span class="sticker yellow">SACA SÓ</span>
-                <h2 style="margin-top: 10px; font-weight: 900;">O QUE É BULLYING?</h2>
-                <p style="font-weight: 700; font-size: 1.1rem; color: var(--text-muted);">Bullying não é "mimimi" ou brincadeira. É qualquer atitude agressiva, verbal, física ou virtual, feita de sacanagem repetidas vezes contra a mesma pessoa.</p>
+            <div style="background: var(--bg-card); border: 1px solid var(--dark-border); padding: 1.5rem; margin-bottom: 2rem;">
+                <span class="street-tag tag-green">ENTENDA O PAPO</span>
+                <h2 style="font-family: 'Teko', sans-serif; font-size: 2.2rem; color: var(--neon-green); margin-top: 5px;">O QUE É BULLYING DE FATO?</h2>
+                <p style="color: var(--text-muted); font-weight: 700;">Bullying não é brincadeira nem tiração de onda inofensiva. É agressão física, verbal ou psicológica sistemática e repetida de propósito contra alguém.</p>
             </div>
             
             <div class="grid-cards">
-                <div class="card" style="background: #fffb00;">
-                    <span class="sticker purple">TIPO 01</span>
-                    <h3 style="margin-top: 10px;">🗣️ VERBAL</h3>
-                    <p><strong>Apelidos maldosos, xingamentos, piadas ofensivas e humilhação em público.</strong></p>
+                <div class="card">
+                    <span class="street-tag tag-cyan">FORMATO 01</span>
+                    <h3>🗣️ VERBAL</h3>
+                    <p style="color: var(--text-muted);">Apelidos pejorativos, ofensas diretas, chacotas e difamação em público.</p>
                 </div>
-                <div class="card" style="background: #00ffff;">
-                    <span class="sticker pink">TIPO 02</span>
-                    <h3 style="margin-top: 10px;">🚫 RELACIONAL</h3>
-                    <p><strong>Excluir do grupo de propósito, inventar fofocas ou ignorar a pessoa até ela se isolar.</strong></p>
+                <div class="card">
+                    <span class="street-tag tag-pink">FORMATO 02</span>
+                    <h3>🚫 RELACIONAL</h3>
+                    <p style="color: var(--text-muted);">Exclusão proposital do grupo, espalhar fofocas e isolar o colega.</p>
                 </div>
-                <div class="card" style="background: #ff007f; color: #fff;">
-                    <span class="sticker yellow">TIPO 03</span>
-                    <h3 style="margin-top: 10px;">💥 FÍSICO</h3>
-                    <p><strong>Empurrões, agressões, estragar o material alheio ou intimidação corporal.</strong></p>
+                <div class="card">
+                    <span class="street-tag tag-green">FORMATO 03</span>
+                    <h3>💥 FÍSICO</h3>
+                    <p style="color: var(--text-muted);">Empurrões, agressão física, danificar pertences ou intimidação corporal.</p>
                 </div>
             </div>
         </section>
 
         <section id="escuta" class="tab-content">
-            <div style="background: #fff; border: var(--border-thick); padding: 1.5rem; box-shadow: var(--shadow-hard); margin-bottom: 1.5rem;">
-                <span class="sticker cyan">MANDAFONTES</span>
-                <h2 style="margin-top: 10px; font-weight: 900;">ESPAÇO DE DESABAFO SIMULADO</h2>
-                <p style="font-weight: 700;">Coloque pra fora o que tá te incomodando. Fique tranquilo(a): <strong>nada do que você digitar aqui será salvo.</strong></p>
+            <div style="background: var(--bg-card); border: 1px solid var(--dark-border); padding: 1.5rem; margin-bottom: 1.5rem;">
+                <span class="street-tag tag-cyan">MANDA A REAL</span>
+                <h2 style="font-family: 'Teko', sans-serif; font-size: 2.2rem; color: var(--neon-cyan); margin-top: 5px;">ESPAÇO DE DESABAFO SIMULADO</h2>
+                <p style="color: var(--text-muted); font-weight: 700;">Solta o verbo sem medo. Este formulário é 100% simulado: <strong>nenhum dado é salvo ou enviado.</strong></p>
             </div>
 
             <form id="form-escuta">
                 <textarea id="desabafo" rows="5" placeholder="Escreva seu desabafo aqui..." required></textarea>
-                <button type="submit" class="btn-action">Mandar Mensagem 🚀</button>
+                <button type="submit" class="btn-action">ENVIAR MENSAGEM 🚀</button>
             </form>
 
             <div id="mensagem-acolhimento" class="alert-box hidden"></div>
 
             <div style="margin-top: 3rem;">
-                <h3 style="font-weight: 900; font-size: 1.5rem; text-transform: uppercase;">ONDE BUSCAR AJUDA DE VERDADE?</h3>
+                <h3 style="font-family: 'Teko', sans-serif; font-size: 2rem; color: var(--neon-green);">COMO BUSCAR AJUDA REAL?</h3>
                 <div class="grid-cards">
-                    <div class="card" style="background: #fff;">
-                        <span class="sticker yellow">NA ESCOLA</span>
-                        <h3 style="margin-top: 10px;">👨‍🏫 PROFESSORES / DIREÇÃO</h3>
-                        <p>Procure aquele professor maneiro ou a equipe pedagógica. Eles têm a obrigação de agir!</p>
+                    <div class="card">
+                        <span class="street-tag tag-green">NA ESCOLA</span>
+                        <h3>👨‍🏫 PROFESSORES E DIREÇÃO</h3>
+                        <p style="color: var(--text-muted);">Converse com a coordenação ou aquele professor ponta firme. Eles têm obrigação de intervir!</p>
                     </div>
-                    <div class="card" style="background: #fff;">
-                        <span class="sticker purple">DISQUE GRÁTIS</span>
-                        <h3 style="margin-top: 10px;">📞 CANAIS OFICIAIS</h3>
-                        <p><strong>Disque 100</strong> (Direitos Humanos)<br><strong>Disque 188</strong> (CVV - Apoio Emocional)</p>
+                    <div class="card">
+                        <span class="street-tag tag-pink">LIGAÇÃO GRÁTIS</span>
+                        <h3>📞 CANAIS OFICIAIS</h3>
+                        <p style="color: var(--text-muted);"><strong>Disque 100</strong> (Direitos Humanos)<br><strong>Disque 188</strong> (CVV - Apoio Emocional)</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="quiz" class="tab-content">
-            <div style="background: #fff; border: var(--border-thick); padding: 1.5rem; box-shadow: var(--shadow-hard); margin-bottom: 1.5rem;">
-                <span class="sticker pink">DESAFIO</span>
-                <h2 style="margin-top: 10px; font-weight: 900;">QUIZ: TESTE SUA VISÃO</h2>
-                <p style="font-weight: 700;">Responda às 5 perguntas e veja se você manja de respeito e atitude na escola.</p>
+            <div style="background: var(--bg-card); border: 1px solid var(--dark-border); padding: 1.5rem; margin-bottom: 1.5rem;">
+                <span class="street-tag tag-pink">TESTE DE ATITUDE</span>
+                <h2 style="font-family: 'Teko', sans-serif; font-size: 2.2rem; color: var(--neon-pink); margin-top: 5px;">QUIZ DE RESPEITO</h2>
+                <p style="color: var(--text-muted); font-weight: 700;">Responda às 5 questões e confira qual é a visão correta nas situações de escola.</p>
             </div>
 
             <form id="quiz-form">
                 <div class="quiz-box">
-                    <p>1. Zombar do cabelo ou corpo de alguém direto é:</p>
-                    <label><input type="radio" name="q1" value="a"> Zoeira normal de colégio</label>
-                    <label><input type="radio" name="q1" value="b"> Bullying verbal e desrespeito</label>
-                    <label><input type="radio" name="q1" value="c"> Elogio disfarçado</label>
+                    <p>1. Zombar da aparência de um colega repetidamente é:</p>
+                    <label><input type="radio" name="q1" value="a"> Zueira normal da galera</label>
+                    <label><input type="radio" name="q1" value="b"> Bullying verbal desrespeitoso</label>
+                    <label><input type="radio" name="q1" value="c"> Apenas brincadeira inofensiva</label>
                 </div>
 
                 <div class="quiz-box">
-                    <p>2. Viu um colega sendo encurralado ou zoado na aula, o que faz?</p>
-                    <label><input type="radio" name="q2" value="a"> Filmo pro grupo do WhatsApp</label>
-                    <label><input type="radio" name="q2" value="b"> Finjo que nem vi pra não sobrar pra mim</label>
-                    <label><input type="radio" name="q2" value="c"> Chamo um professor ou adulto na hora</label>
+                    <p>2. Se presenciar alguém sofrendo agressão ou humilhação, o certo é:</p>
+                    <label><input type="radio" name="q2" value="a"> Gravar vídeo para postar na internet</label>
+                    <label><input type="radio" name="q2" value="b"> Fingir que não viu nada</label>
+                    <label><input type="radio" name="q2" value="c"> Comunicar imediatamente um responsável ou professor</label>
                 </div>
 
                 <div class="quiz-box">
-                    <p>3. Não deixar a pessoa sentar na mesa do lanche de propósito é:</p>
-                    <label><input type="radio" name="q3" value="a"> Bullying relacional / exclusão</label>
-                    <label><input type="radio" name="q3" value="b"> Direito meu de escolher lugar</label>
-                    <label><input type="radio" name="q3" value="c"> Uma bobeira sem importância</label>
+                    <p>3. Isolar propositalmente um colega dos grupos de trabalho é:</p>
+                    <label><input type="radio" name="q3" value="a"> Bullying relacional/social</label>
+                    <label><input type="radio" name="q3" value="b"> Direito de escolher os amigos</label>
+                    <label><input type="radio" name="q3" value="c"> Algo sem impacto emocional</label>
                 </div>
 
                 <div class="quiz-box">
-                    <p>4. Como dar uma moral e ter uma atitude da hora na escola?</p>
-                    <label><input type="radio" name="q4" value="a"> Respeitando a ideia dos outros mesmo sem concordar</label>
-                    <label><input type="radio" name="q4" value="b"> Rindo da cara de quem erra a resposta da professora</label>
-                    <label><input type="radio" name="q4" value="c"> Espalhando fofoca da vida dos outros</label>
+                    <p>4. Qual atitude fortalece o respeito na convivência escolar?</p>
+                    <label><input type="radio" name="q4" value="a"> Escutar e respeitar as diferenças dos outros</label>
+                    <label><input type="radio" name="q4" value="b"> Rir quando alguém comete um erro na sala</label>
+                    <label><input type="radio" name="q4" value="c"> Inventar histórias e fofocas sobre os outros</label>
                 </div>
 
                 <div class="quiz-box">
-                    <p>5. Se a barra tá pesada e você tá sofrendo bullying, qual o esquema?</p>
-                    <label><input type="radio" name="q5" value="a"> Engolir o choro e ficar calado</label>
-                    <label><input type="radio" name="q5" value="b"> Pedir ajuda pra alguém de confiança</label>
-                    <label><input type="radio" name="q5" value="c"> Resolver na porrada</label>
+                    <p>5. Se você for o alvo de bullying na escola, qual a melhor atitude?</p>
+                    <label><input type="radio" name="q5" value="a"> Guardar tudo para si e sofrer sozinho</label>
+                    <label><input type="radio" name="q5" value="b"> Procurar apoio de adultos de confiança</label>
+                    <label><input type="radio" name="q5" value="c"> Partir para a violência física</label>
                 </div>
 
-                <button type="button" onclick="calcularQuiz()" class="btn-action">Checar Respostas 💥</button>
+                <button type="button" onclick="calcularQuiz()" class="btn-action">CHECAR RESULTADO ⚡</button>
             </form>
 
             <div id="resultado-quiz" class="alert-box hidden"></div>
         </section>
 
         <section id="referencias" class="tab-content">
-            <div style="background: #fff; border: var(--border-thick); padding: 1.5rem; box-shadow: var(--shadow-hard); margin-bottom: 1.5rem;">
-                <span class="sticker purple">SELO DE CONFIANÇA</span>
-                <h2 style="margin-top: 10px; font-weight: 900;">FONTES CONSULTADAS</h2>
-                <p style="font-weight: 700;">Pesquisa séria baseada em instituições oficiais:</p>
+            <div style="background: var(--bg-card); border: 1px solid var(--dark-border); padding: 1.5rem; margin-bottom: 1.5rem;">
+                <span class="street-tag tag-green">INFORMAÇÃO SEGURA</span>
+                <h2 style="font-family: 'Teko', sans-serif; font-size: 2.2rem; color: var(--neon-green); margin-top: 5px;">FONTES OFICIAIS CONSULTADAS</h2>
+                <p style="color: var(--text-muted); font-weight: 700;">Pesquisa fundamentada em instituições reconhecidas:</p>
             </div>
 
             <div class="grid-cards">
-                <div class="card" style="background: #fff;">
-                    <span class="sticker cyan">GOVERNO</span>
-                    <h3 style="margin-top: 10px;">MINISTÉRIO DA EDUCAÇÃO</h3>
-                    <p>Guias de combate ao bullying nas escolas públicas e privadas.</p>
+                <div class="card">
+                    <span class="street-tag tag-cyan">EDUCACIONAL</span>
+                    <h3>MINISTÉRIO DA EDUCAÇÃO</h3>
+                    <p style="color: var(--text-muted);">Diretrizes e materiais educativos de combate à violência no ambiente escolar.</p>
                 </div>
-                <div class="card" style="background: #fff;">
-                    <span class="sticker pink">WEB SEGURA</span>
-                    <h3 style="margin-top: 10px;">SAFERNET BRASIL</h3>
-                    <p>Dicas e acolhimento sobre segurança online e cyberbullying.</p>
+                <div class="card">
+                    <span class="street-tag tag-pink">SEGURA NA REDE</span>
+                    <h3>SAFERNET BRASIL</h3>
+                    <p style="color: var(--text-muted);">Orientações sobre cidadania digital, segurança na internet e cyberbullying.</p>
                 </div>
-                <div class="card" style="background: #fff;">
-                    <span class="sticker yellow">APOIO 24H</span>
-                    <h3 style="margin-top: 10px;">CVV</h3>
-                    <p>Suporte emocional gratuito para quem precisa de uma conversa amiga.</p>
+                <div class="card">
+                    <span class="street-tag tag-green">SUPORTE 24H</span>
+                    <h3>CENTRO DE VALORIZAÇÃO DA VIDA</h3>
+                    <p style="color: var(--text-muted);">Atendimento voluntário e gratuito de suporte emocional via Disque 188.</p>
                 </div>
             </div>
         </section>
@@ -498,7 +506,7 @@
     <button id="btn-top" onclick="scrollToTop()">↑</button>
 
     <footer>
-        <p>⚡ ACOLHE_ESCOLA — PROJETO INDIVIDUAL DE APOIO AO ESTUDANTE ⚡</p>
+        <p>⚡ ACOLHE_STREET — PROJETO INDIVIDUAL DE APOIO AO ESTUDANTE ⚡</p>
     </footer>
 
     <script>
@@ -541,9 +549,9 @@
             const msgBox = document.getElementById('mensagem-acolhimento');
             msgBox.classList.remove('hidden');
             msgBox.innerHTML = `
-                <h3 style="font-size: 1.5rem; text-transform: uppercase;">MENSAGEM RECEBIDA! 🔥</h3>
-                <p>Tamo junto! Lembre-se que você é brabo(a) e não precisa passar por nada sozinho(a). Procure alguém de confiança!</p>
-                <small>*Simulação finalizada. Nenhum dado foi salvo.</small>
+                <h3 style="font-family: 'Teko', sans-serif; font-size: 1.8rem; color: var(--neon-cyan);">MENSAGEM ENVIADA COM SUCESSO! ⚡</h3>
+                <p>Tamo junto! Lembre-se de que sua voz tem força e você não precisa guardar nada sozinho(a). Procure apoio com adultos de confiança!</p>
+                <small style="color: var(--text-muted);">*Esta é uma demonstração interativa. Nenhum dado foi armazenado.</small>
             `;
             document.getElementById('form-escuta').reset();
         });
@@ -563,8 +571,8 @@
             const resBox = document.getElementById('resultado-quiz');
             resBox.classList.remove('hidden');
             resBox.innerHTML = `
-                <h3 style="font-size: 1.5rem; text-transform: uppercase;">PLACAR: ${pontos} / 5 ACERTOS!</h3>
-                <p>${pontos === 5 ? 'AÍ SIM! Você domina o assunto e sabe como manter o respeito lá em cima! 🏆' : 'VALEU A TENTATIVA! O importante é continuar esperto(a) e espalhando respeito. 👊'}</p>
+                <h3 style="font-family: 'Teko', sans-serif; font-size: 2rem; color: var(--neon-green);">RESULTADO: ${pontos} / 5 ACERTOS!</h3>
+                <p>${pontos === 5 ? 'AÍ SIM! Você tem a visão completa de respeito e ajuda mútua no colégio! 🏆' : 'BOM TRABALHO! Continue ligado(a) nas atitudes e fortalecendo o respeito no dia a dia. 👊'}</p>
             `;
         }
     </script>

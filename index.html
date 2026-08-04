@@ -8,27 +8,27 @@
     
     <style>
         /* ==========================================
-           1. ESTILIZAÇÃO PSICODÉLICA / RETRÔ / RAVE
+           PALETA EXTRAÍDA DOS SEUS GIFS
            ========================================== */
         :root {
-            --bg-black: #000000;
-            --neon-green: #00ff00;
-            --neon-pink: #ff00ff;
-            --neon-yellow: #ffff00;
-            --neon-cyan: #00ffff;
+            --bg-black: #030108;
+            --neon-green: #00ff66;
+            --neon-pink: #ff007f;
+            --neon-purple: #9d4edd;
+            --neon-cyan: #00f0ff;
+            --neon-yellow: #ffee00;
             --font-pixel: 'Press Start 2P', cursive;
             --font-terminal: 'VT323', monospace;
             --base-size: 16px;
         }
 
-        /* Alto Contraste Extremo */
         body.high-contrast {
-            --bg-black: #ffffff !important;
-            --neon-green: #000000 !important;
-            --neon-pink: #000000 !important;
-            --neon-yellow: #000000 !important;
-            --neon-cyan: #000000 !important;
-            color: #000000 !important;
+            --bg-black: #000000 !important;
+            --neon-green: #ffff00 !important;
+            --neon-pink: #ffffff !important;
+            --neon-purple: #ffffff !important;
+            --neon-cyan: #00ffff !important;
+            color: #ffffff !important;
         }
 
         * {
@@ -47,75 +47,78 @@
             color: var(--neon-green);
             font-family: var(--font-terminal);
             font-size: 1.5rem;
-            /* Fundo com padronagem psicodélica */
+            /* Fundo psicodélico suave combinando com os GIFs */
             background-image: 
-                radial-gradient(circle at 50% 50%, rgba(255, 0, 255, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.2) 0%, transparent 40%);
+                radial-gradient(circle at 15% 20%, rgba(255, 0, 127, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 255, 102, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(157, 78, 221, 0.2) 0%, transparent 50%);
             background-attachment: fixed;
             padding-bottom: 50px;
+            overflow-x: hidden;
         }
 
-        /* BANNER DE AVISO PISCANTE */
+        /* MARQUEE SUPERIOR */
         .marquee-container {
-            background: var(--neon-pink);
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple), var(--neon-cyan));
             color: #000;
             font-family: var(--font-pixel);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             padding: 8px 0;
             font-weight: bold;
-            border-bottom: 4px dashed var(--neon-yellow);
+            border-bottom: 3px solid var(--neon-yellow);
         }
 
-        /* CABEÇALHO & MENU */
+        /* CABEÇALHO */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: #000;
-            border: 4px double var(--neon-cyan);
+            background: rgba(3, 1, 8, 0.95);
+            border: 3px double var(--neon-pink);
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            box-shadow: 0 0 15px var(--neon-cyan);
+            box-shadow: 0 0 20px var(--neon-pink);
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo-area h1 {
             font-family: var(--font-pixel);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--neon-yellow);
-            text-shadow: 3px 3px var(--neon-pink);
+            text-shadow: 2px 2px var(--neon-pink);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         nav a {
             font-family: var(--font-pixel);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--neon-cyan);
             text-decoration: none;
-            background: #111;
-            padding: 8px 12px;
+            background: #0d061a;
+            padding: 8px 10px;
             border: 2px solid var(--neon-green);
             display: inline-block;
+            transition: all 0.2s;
         }
 
         nav a:hover {
             background: var(--neon-pink);
             color: #fff;
-            box-shadow: 0 0 10px var(--neon-pink);
+            box-shadow: 0 0 12px var(--neon-pink);
         }
 
         .acc-bar {
@@ -128,74 +131,103 @@
             color: #000;
             border: none;
             font-family: var(--font-pixel);
-            font-size: 0.7rem;
-            padding: 6px 10px;
+            font-size: 0.65rem;
+            padding: 6px 8px;
             cursor: pointer;
             font-weight: bold;
         }
 
-        /* ESTRUTURA DOS CARDS / SEÇÕES */
+        /* ESTRUTURA PRINCIPAL */
         main {
             max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 10px;
+            margin: 30px auto;
+            padding: 0 15px;
+            position: relative;
         }
 
         section {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .cyber-box {
-            background: rgba(10, 10, 10, 0.9);
-            border: 4px groove var(--neon-pink);
+            background: rgba(13, 6, 26, 0.9);
+            border: 3px solid var(--neon-green);
             padding: 25px;
-            box-shadow: 8px 8px 0px var(--neon-green);
+            box-shadow: 8px 8px 0px var(--neon-purple);
             position: relative;
         }
 
         h2 {
             font-family: var(--font-pixel);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--neon-pink);
-            text-shadow: 2px 2px var(--neon-yellow);
+            text-shadow: 2px 2px var(--neon-cyan);
             margin-bottom: 20px;
-            border-bottom: 2px dashed var(--neon-cyan);
+            border-bottom: 2px dashed var(--neon-yellow);
             padding-bottom: 10px;
         }
 
-        /* DECORAÇÃO COM IMAGENS / GIFS ALIENÍGENAS */
-        .decor-grid {
+        /* GALERIA INTEGRANDO OS SEUS GIFS */
+        .gif-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
             text-align: center;
         }
 
-        .decor-card {
-            border: 2px dotted var(--neon-yellow);
+        .gif-card {
+            border: 2px solid var(--neon-cyan);
             padding: 10px;
-            background: #050505;
+            background: #000;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .decor-card img {
+        .gif-card img {
             width: 100%;
-            max-height: 120px;
+            max-height: 180px;
             object-fit: contain;
+            border-radius: 4px;
         }
 
-        .decor-card p {
-            font-size: 1rem;
-            color: var(--neon-cyan);
-            margin-top: 5px;
+        .gif-card p {
+            font-family: var(--font-pixel);
+            font-size: 0.65rem;
+            color: var(--neon-yellow);
+            margin-top: 10px;
         }
 
-        /* FORMULÁRIO PORTAL DE ESCUTA */
+        /* GIFS FLUTUANTES PELO SITE */
+        .floating-gif-left {
+            position: fixed;
+            bottom: 20px;
+            left: 15px;
+            width: 90px;
+            z-index: 99;
+            pointer-events: none;
+            filter: drop-shadow(0 0 8px var(--neon-green));
+        }
+
+        .floating-gif-right {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 90px;
+            z-index: 99;
+            pointer-events: none;
+            filter: drop-shadow(0 0 8px var(--neon-pink));
+        }
+
+        /* FORMULÁRIO */
         textarea {
             width: 100%;
             height: 120px;
             background: #000;
-            border: 3px solid var(--neon-green);
+            border: 2px solid var(--neon-purple);
             color: var(--neon-green);
             font-family: var(--font-terminal);
             font-size: 1.4rem;
@@ -205,8 +237,8 @@
         }
 
         textarea:focus {
-            border-color: var(--neon-yellow);
-            box-shadow: 0 0 10px var(--neon-yellow);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 12px var(--neon-cyan);
         }
 
         .btn-cyber {
@@ -214,7 +246,7 @@
             color: #000;
             border: none;
             font-family: var(--font-pixel);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             padding: 12px 20px;
             cursor: pointer;
             box-shadow: 4px 4px 0px var(--neon-pink);
@@ -230,7 +262,7 @@
             display: none;
             margin-top: 20px;
             padding: 15px;
-            border: 3px double var(--neon-yellow);
+            border: 2px double var(--neon-yellow);
             background: #110011;
             color: var(--neon-yellow);
         }
@@ -238,14 +270,14 @@
         /* QUIZ */
         .quiz-item {
             margin-bottom: 20px;
-            background: #050510;
+            background: #000;
             border: 2px dashed var(--neon-cyan);
             padding: 15px;
         }
 
         .quiz-opt {
-            background: #111;
-            border: 1px solid var(--neon-green);
+            background: #0d061a;
+            border: 1px solid var(--neon-purple);
             padding: 10px;
             margin: 8px 0;
             cursor: pointer;
@@ -266,12 +298,12 @@
         #quiz-resultado {
             display: none;
             text-align: center;
-            border: 4px solid var(--neon-green);
+            border: 3px solid var(--neon-green);
             padding: 20px;
             background: #001100;
         }
 
-        /* CONTATOS & REFERÊNCIAS */
+        /* LINKS */
         .links-list {
             list-style-type: square;
             padding-left: 20px;
@@ -287,25 +319,25 @@
             text-decoration: underline;
         }
 
-        /* VOLTAR AO TOPO */
         #btn-top {
             position: fixed;
-            bottom: 20px;
+            top: 20px;
             right: 20px;
             background: var(--neon-pink);
             color: #fff;
-            border: 3px solid #fff;
+            border: 2px solid #fff;
             font-family: var(--font-pixel);
-            padding: 10px;
+            font-size: 0.6rem;
+            padding: 8px;
             cursor: pointer;
             display: none;
-            z-index: 999;
+            z-index: 1001;
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            border-top: 4px dotted var(--neon-green);
+            border-top: 3px dotted var(--neon-green);
             background: #000;
             margin-top: 40px;
         }
@@ -319,9 +351,12 @@
         </marquee>
     </div>
 
+    <img src="https://media.tenor.com/bezqb/gif.gif" class="floating-gif-left" alt="Alien Flutuante Verde">
+    <img src="https://media.tenor.com/bmkDg/gif.gif" class="floating-gif-right" alt="Cogumelo Neon">
+
     <header>
         <div class="logo-area">
-            <img src="https://raw.githubusercontent.com/TarikOzturk017/gif-files/main/alien.gif" alt="Alien Icon" width="40">
+            <img src="https://media.tenor.com/bezqb/gif.gif" alt="Alien Logo" width="35">
             <h1>PORTAL NEBULOSA</h1>
         </div>
 
@@ -349,18 +384,22 @@
                 
                 <p>O <strong>Portal Nebulosa</strong> é um ambiente virtual criado para promover o respeito, a empatia e o acolhimento dentro do ambiente escolar. Aqui valorizamos a diversidade e combatemos todo tipo de preconceito e discriminação!</p>
 
-                <div class="decor-grid">
-                    <div class="decor-card">
-                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Z6eTVsc2x4Zzh3Nnd3b3R6OXE2cTJmbndzeWh6MWo2NXRzZjF4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xoi6nNqJUFiX1e/giphy.gif" alt="Alien Rave">
-                        <p>Alien Paz & Amor</p>
+                <div class="gif-gallery">
+                    <div class="gif-card">
+                        <img src="https://media.tenor.com/bezqb/gif.gif" alt="Alien Dance">
+                        <p>Alien Vibe</p>
                     </div>
-                    <div class="decor-card">
-                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExczMxa2k0dnA0eWZic3JzeWc3OXpza25ndWFscWRpczc5bnFrc3Y1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26AHPxxnSw1L9T1rW/giphy.gif" alt="Cogumelo Neon">
-                        <p>Cogumelo Psico</p>
+                    <div class="gif-card">
+                        <img src="https://media.tenor.com/ig4fxpfODvL/gif.gif" alt="Alien Party">
+                        <p>Rave Space</p>
                     </div>
-                    <div class="decor-card">
-                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnFlcHowZjNveDVvczkxbXRpNGs0OGNidmdsaHZ5MnU3MmJtYzVkeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l378A85vjlL1UR5B2/giphy.gif" alt="Festa Rave Pixel">
-                        <p>Vibe Positiva</p>
+                    <div class="gif-card">
+                        <img src="https://media.tenor.com/bmkDg/gif.gif" alt="Cogumelo">
+                        <p>Psico Cogumelo</p>
+                    </div>
+                    <div class="gif-card">
+                        <img src="https://media.tenor.com/jsmlLuM5AEz/gif.gif" alt="Alien Psy">
+                        <p>Frequência Neon</p>
                     </div>
                 </div>
 
@@ -373,7 +412,7 @@
         <section id="escuta">
             <div class="cyber-box">
                 <h2>💬 PORTAL DE ESCUTA // DESABAFO SIMULADO</h2>
-                <p>Precisa desabafar sobre algo que aconteceu na escola? Escreva abaixo. <strong>Atenção:</strong> Este formulário é apenas uma simulação interativa. Nenhuma informação é salva!</p>
+                <p>Precisa desabafar sobre algo que aconteceu na escola? Escreva abaixo. <strong>Atenção:</strong> Este formulário é apenas uma simulação interativa. Nenhuma informação é armazenada!</p>
                 <br>
 
                 <form onsubmit="processarDesabafo(event)">
@@ -382,14 +421,16 @@
                 </form>
 
                 <div id="feedback-escuta">
-                    <p style="font-family: var(--font-pixel); font-size: 0.9rem; color: var(--neon-green);">
+                    <p style="font-family: var(--font-pixel); font-size: 0.8rem; color: var(--neon-green);">
                         ✨ RECEBIDO COM SUCESSO!
                     </p>
+                    <br>
                     <p>Obrigado por compartilhar. Lembre-se de que você não precisa enfrentar os desafios sozinho(a). Sempre procure um professor, pedagogo, direção da escola ou seus familiares quando precisar de ajuda!</p>
                 </div>
 
                 <div style="margin-top: 25px; border-top: 2px dashed var(--neon-pink); padding-top: 15px;">
-                    <h3 style="color: var(--neon-yellow); font-family: var(--font-pixel); font-size: 0.9rem;">CANAIS DE AJUDA RÁPIDA:</h3>
+                    <h3 style="color: var(--neon-yellow); font-family: var(--font-pixel); font-size: 0.8rem;">CANAIS DE AJUDA RÁPIDA:</h3>
+                    <br>
                     <p>📞 <strong>CVV (Apoio Emocional):</strong> Ligue 188 (Gratuito)</p>
                     <p>🛡️ <strong>Direitos Humanos:</strong> Disque 100</p>
                 </div>
@@ -445,7 +486,7 @@
     </main>
 
     <footer>
-        <p style="font-family: var(--font-pixel); font-size: 0.7rem; color: var(--neon-cyan);">
+        <p style="font-family: var(--font-pixel); font-size: 0.65rem; color: var(--neon-cyan);">
             🛸 PORTAL DE APOIO AO ESTUDANTE // PROJETO ESCOLAR 🍄
         </p>
     </footer>
@@ -453,7 +494,7 @@
     <button id="btn-top" onclick="subirTopo()">TOPO ▲</button>
 
     <script>
-        /* 1. ACESSIBILIDADE E VOLTAR AO TOPO */
+        /* ACESSIBILIDADE E NAVEGAÇÃO */
         let escalaFonte = 100;
         function mudarFonte(val) {
             escalaFonte += val * 10;
@@ -479,14 +520,14 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* 2. SIMULAÇÃO PORTAL DE ESCUTA */
+        /* SIMULAÇÃO PORTAL DE ESCUTA */
         function processarDesabafo(e) {
             e.preventDefault();
             document.getElementById('feedback-escuta').style.display = 'block';
             document.getElementById('campo-desabafo').value = '';
         }
 
-        /* 3. QUIZ INTERATIVO COM 5 PERGUNTAS */
+        /* QUIZ */
         const dadosQuiz = [
             {
                 q: "1. Zoar repetidamente um colega pela sua cor, orientação ou aparência é:",
@@ -580,7 +621,6 @@
             montarQuiz();
         }
 
-        // Inicializa o Quiz
         montarQuiz();
     </script>
 </body>

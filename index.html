@@ -7,9 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     
     <style>
-        /* ==========================================
-           PALETA EXTRAÍDA DOS SEUS GIFS
-           ========================================== */
         :root {
             --bg-black: #030108;
             --neon-green: #00ff66;
@@ -47,7 +44,6 @@
             color: var(--neon-green);
             font-family: var(--font-terminal);
             font-size: 1.5rem;
-            /* Fundo psicodélico suave combinando com os GIFs */
             background-image: 
                 radial-gradient(circle at 15% 20%, rgba(255, 0, 127, 0.25) 0%, transparent 40%),
                 radial-gradient(circle at 85% 80%, rgba(0, 255, 102, 0.2) 0%, transparent 40%),
@@ -57,7 +53,6 @@
             overflow-x: hidden;
         }
 
-        /* MARQUEE SUPERIOR */
         .marquee-container {
             background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple), var(--neon-cyan));
             color: #000;
@@ -68,7 +63,6 @@
             border-bottom: 3px solid var(--neon-yellow);
         }
 
-        /* CABEÇALHO */
         header {
             position: sticky;
             top: 0;
@@ -112,7 +106,6 @@
             padding: 8px 10px;
             border: 2px solid var(--neon-green);
             display: inline-block;
-            transition: all 0.2s;
         }
 
         nav a:hover {
@@ -137,7 +130,6 @@
             font-weight: bold;
         }
 
-        /* ESTRUTURA PRINCIPAL */
         main {
             max-width: 1000px;
             margin: 30px auto;
@@ -167,7 +159,6 @@
             padding-bottom: 10px;
         }
 
-        /* GALERIA INTEGRANDO OS SEUS GIFS */
         .gif-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -201,7 +192,6 @@
             margin-top: 10px;
         }
 
-        /* GIFS FLUTUANTES PELO SITE */
         .floating-gif-left {
             position: fixed;
             bottom: 20px;
@@ -222,7 +212,6 @@
             filter: drop-shadow(0 0 8px var(--neon-pink));
         }
 
-        /* FORMULÁRIO */
         textarea {
             width: 100%;
             height: 120px;
@@ -267,7 +256,6 @@
             color: var(--neon-yellow);
         }
 
-        /* QUIZ */
         .quiz-item {
             margin-bottom: 20px;
             background: #000;
@@ -303,7 +291,6 @@
             background: #001100;
         }
 
-        /* LINKS */
         .links-list {
             list-style-type: square;
             padding-left: 20px;
@@ -351,12 +338,12 @@
         </marquee>
     </div>
 
-    <img src="https://media.tenor.com/bezqb/gif.gif" class="floating-gif-left" alt="Alien Flutuante Verde">
-    <img src="https://media.tenor.com/bmkDg/gif.gif" class="floating-gif-right" alt="Cogumelo Neon">
+    <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Z6eTVsc2x4Zzh3Nnd3b3R6OXE2cTJmbndzeWh6MWo2NXRzZjF4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xoi6nNqJUFiX1e/giphy.gif" class="floating-gif-left" alt="Alien Flutuante">
+    <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExczMxa2k0dnA0eWZic3JzeWc3OXpza25ndWFscWRpczc5bnFrc3Y1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26AHPxxnSw1L9T1rW/giphy.gif" class="floating-gif-right" alt="Cogumelo Neon">
 
     <header>
         <div class="logo-area">
-            <img src="https://media.tenor.com/bezqb/gif.gif" alt="Alien Logo" width="35">
+            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Z6eTVsc2x4Zzh3Nnd3b3R6OXE2cTJmbndzeWh6MWo2NXRzZjF4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xoi6nNqJUFiX1e/giphy.gif" alt="Alien Logo" width="35">
             <h1>PORTAL NEBULOSA</h1>
         </div>
 
@@ -386,19 +373,19 @@
 
                 <div class="gif-gallery">
                     <div class="gif-card">
-                        <img src="https://media.tenor.com/bezqb/gif.gif" alt="Alien Dance">
+                        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Z6eTVsc2x4Zzh3Nnd3b3R6OXE2cTJmbndzeWh6MWo2NXRzZjF4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o85xoi6nNqJUFiX1e/giphy.gif" alt="Alien Dance">
                         <p>Alien Vibe</p>
                     </div>
                     <div class="gif-card">
-                        <img src="https://media.tenor.com/ig4fxpfODvL/gif.gif" alt="Alien Party">
+                        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnFlcHowZjNveDVvczkxbXRpNGs0OGNidmdsaHZ5MnU3MmJtYzVkeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l378A85vjlL1UR5B2/giphy.gif" alt="Rave Party">
                         <p>Rave Space</p>
                     </div>
                     <div class="gif-card">
-                        <img src="https://media.tenor.com/bmkDg/gif.gif" alt="Cogumelo">
+                        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExczMxa2k0dnA0eWZic3JzeWc3OXpza25ndWFscWRpczc5bnFrc3Y1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26AHPxxnSw1L9T1rW/giphy.gif" alt="Cogumelo">
                         <p>Psico Cogumelo</p>
                     </div>
                     <div class="gif-card">
-                        <img src="https://media.tenor.com/jsmlLuM5AEz/gif.gif" alt="Alien Psy">
+                        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnhzeXp2cXk1YWwxcWVxeWNsaWpoZmtpazZ5ZW1zcmhncDRydDR1YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT9IgLrmwMGYmq0B0I/giphy.gif" alt="Alien Psy">
                         <p>Frequência Neon</p>
                     </div>
                 </div>
@@ -494,7 +481,6 @@
     <button id="btn-top" onclick="subirTopo()">TOPO ▲</button>
 
     <script>
-        /* ACESSIBILIDADE E NAVEGAÇÃO */
         let escalaFonte = 100;
         function mudarFonte(val) {
             escalaFonte += val * 10;
@@ -520,14 +506,12 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* SIMULAÇÃO PORTAL DE ESCUTA */
         function processarDesabafo(e) {
             e.preventDefault();
             document.getElementById('feedback-escuta').style.display = 'block';
             document.getElementById('campo-desabafo').value = '';
         }
 
-        /* QUIZ */
         const dadosQuiz = [
             {
                 q: "1. Zoar repetidamente um colega pela sua cor, orientação ou aparência é:",

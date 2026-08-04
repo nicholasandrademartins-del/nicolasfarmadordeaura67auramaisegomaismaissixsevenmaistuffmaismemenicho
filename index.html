@@ -3,578 +3,641 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACOLHE_STREET — Apoio ao Estudante</title>
+    <title>Portal Nebulosa - Apoio & Respeito</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* ===================================================
-           ESTILO STREETWEAR / URBAN UNDERGROUND
-           =================================================== */
-        @import url('https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Montserrat:wght@700;900&display=swap');
-
+        /* ==========================================
+           1. VARIÁVEIS DE CORES (RAVE / ALIEN / NEON)
+           ========================================== */
         :root {
-            --bg-body: #0d0e12;
-            --bg-card: #161821;
-            --bg-header: #000000;
-            --text-main: #ffffff;
-            --text-muted: #a0a5b5;
-            
-            --neon-green: #ccff00;
+            --bg-dark: #05020a;
+            --bg-card: #0d061a;
+            --neon-green: #39ff14;
+            --neon-purple: #9d4edd;
+            --neon-pink: #ff007f;
             --neon-cyan: #00f0ff;
-            --neon-pink: #ff0055;
-            --dark-border: #2a2d3d;
-
-            --shadow-glow-green: 0 0 15px rgba(204, 255, 0, 0.4);
-            --shadow-glow-cyan: 0 0 15px rgba(0, 240, 255, 0.4);
-            --shadow-glow-pink: 0 0 15px rgba(255, 0, 85, 0.4);
+            --text-color: #e2d9f3;
+            --text-dim: #a395c4;
+            --font-main: 'Quicksand', sans-serif;
+            --font-heading: 'Orbitron', sans-serif;
+            --base-font-size: 16px;
         }
 
-        body.dark-mode {
-            --bg-body: #050507;
-            --bg-card: #0f1017;
-            --bg-header: #000000;
-            --text-main: #f0f0f5;
-            --text-muted: #808595;
-            --dark-border: #33374c;
+        /* Classe de Alto Contraste */
+        body.high-contrast {
+            --bg-dark: #000000 !important;
+            --bg-card: #111111 !important;
+            --neon-green: #ffff00 !important;
+            --neon-purple: #ffffff !important;
+            --neon-pink: #00ffff !important;
+            --neon-cyan: #00ffff !important;
+            --text-color: #ffffff !important;
+            --text-dim: #dddddd !important;
         }
 
+        /* RESET BÁSICO */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            transition: background-color 0.2s, color 0.2s;
+            box-sizing: border-box;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: var(--base-font-size);
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-body);
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Fundo psicodélico suave estilo nebulosa */
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: var(--text-main);
-            line-height: 1.5;
-            padding-bottom: 60px;
+                radial-gradient(circle at 10% 20%, rgba(157, 78, 221, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(57, 255, 20, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 127, 0.08) 0%, transparent 60%);
+            background-attachment: fixed;
         }
 
-        /* ===================================================
-           TAGS & STREET BADGES
-           =================================================== */
-        .street-tag {
-            display: inline-block;
-            font-family: 'Teko', sans-serif;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 2px 10px;
-            font-weight: 700;
-            border-radius: 2px;
-            color: #000;
-            transform: skew(-10deg);
-            margin-bottom: 8px;
-        }
-
-        .tag-green { background: var(--neon-green); box-shadow: var(--shadow-glow-green); }
-        .tag-cyan { background: var(--neon-cyan); box-shadow: var(--shadow-glow-cyan); }
-        .tag-pink { background: var(--neon-pink); color: #fff; box-shadow: var(--shadow-glow-pink); }
-
-        /* ===================================================
-           CABEÇALHO URBAN
-           =================================================== */
-        .header {
+        /* ==========================================
+           2. CABEÇALHO & BARRA DE NAVEGAÇÃO
+           ========================================== */
+        header {
             position: sticky;
             top: 0;
-            background-color: var(--bg-header);
-            border-bottom: 2px solid var(--neon-green);
+            z-index: 1000;
+            background: rgba(5, 2, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--neon-purple);
+            box-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.8rem 5%;
-            z-index: 1000;
+            flex-wrap: wrap;
         }
 
         .logo {
-            font-family: 'Teko', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 900;
             color: var(--neon-green);
-            text-shadow: 0 0 10px rgba(204, 255, 0, 0.6);
+            text-shadow: 0 0 8px var(--neon-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .navbar ul {
+        nav ul {
             display: flex;
             list-style: none;
-            gap: 1.2rem;
+            gap: 1.5rem;
         }
 
-        .navbar a {
+        nav a {
+            color: var(--text-color);
             text-decoration: none;
-            color: var(--text-main);
-            font-family: 'Teko', sans-serif;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
+            font-weight: 600;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
             text-transform: uppercase;
-            padding: 0.2rem 0.8rem;
-            border: 1px solid transparent;
-            transition: all 0.2s;
+            letter-spacing: 1px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
 
-        .navbar a:hover, .navbar a.active {
-            color: var(--neon-cyan);
-            border-color: var(--neon-cyan);
-            background: rgba(0, 240, 255, 0.1);
-            transform: skew(-5deg);
+        nav a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+            border-bottom: 2px solid var(--neon-pink);
         }
 
-        .tools {
+        .accessibility-bar {
             display: flex;
             gap: 0.5rem;
         }
 
-        .tools button {
-            background: var(--bg-card);
-            border: 1px solid var(--dark-border);
-            color: var(--text-main);
-            padding: 0.4rem 0.8rem;
+        .btn-acc {
+            background: transparent;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 4px 10px;
+            border-radius: 20px;
             cursor: pointer;
-            font-weight: 900;
-            border-radius: 4px;
+            font-weight: bold;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            box-shadow: 0 0 5px var(--neon-cyan);
         }
 
-        .tools button:hover {
-            border-color: var(--neon-green);
-            color: var(--neon-green);
-        }
-
-        /* ===================================================
-           SEÇÕES E CARDS
-           =================================================== */
-        .container {
-            max-width: 950px;
-            margin: 2.5rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #161821 0%, #000000 100%);
-            border: 2px solid var(--neon-green);
-            box-shadow: var(--shadow-glow-green);
-            padding: 3rem 1.8rem;
-            text-align: center;
-            position: relative;
-            margin-bottom: 2.5rem;
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
-        }
-
-        .hero h2 {
-            font-family: 'Teko', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            line-height: 1;
-            color: var(--neon-green);
-            text-shadow: 0 0 12px rgba(204, 255, 0, 0.5);
-            margin-bottom: 0.8rem;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 1.8rem auto;
-            font-weight: 700;
-        }
-
-        .btn-action {
-            background: var(--neon-green);
-            color: #000;
-            border: none;
-            padding: 0.8rem 2rem;
-            font-family: 'Teko', sans-serif;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: var(--shadow-glow-green);
-            transform: skew(-8deg);
-            transition: all 0.2s;
-        }
-
-        .btn-action:hover {
+        .btn-acc:hover {
             background: var(--neon-cyan);
-            box-shadow: var(--shadow-glow-cyan);
-            transform: skew(-8deg) scale(1.05);
+            color: var(--bg-dark);
         }
 
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+        /* ==========================================
+           3. LAYOUT DAS SEÇÕES
+           ========================================== */
+        container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            padding-top: 2rem;
         }
 
         .card {
             background-color: var(--bg-card);
-            border: 1px solid var(--dark-border);
-            padding: 1.5rem;
+            border: 1px solid rgba(157, 78, 221, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            overflow: hidden;
         }
 
-        .card:hover {
-            border-color: var(--neon-cyan);
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--neon-green), var(--neon-pink), var(--neon-cyan));
         }
 
-        .card h3 {
-            font-family: 'Teko', sans-serif;
-            font-size: 1.8rem;
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            margin-bottom: 1rem;
             letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--neon-cyan);
-            margin-bottom: 0.4rem;
         }
 
-        /* ===================================================
-           FORMULÁRIOS & QUIZ
-           =================================================== */
+        h1 {
+            font-size: 2.2rem;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--neon-pink);
+            text-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
+            border-bottom: 1px dashed var(--neon-purple);
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        /* ==========================================
+           4. PORTAL DE ESCUTA (FORMULÁRIO)
+           ========================================== */
         textarea {
             width: 100%;
+            height: 120px;
+            background: rgba(5, 2, 10, 0.8);
+            border: 1px solid var(--neon-purple);
+            border-radius: 8px;
+            color: var(--text-color);
             padding: 1rem;
-            background: var(--bg-card);
-            color: var(--text-main);
-            border: 1px solid var(--dark-border);
+            font-family: var(--font-main);
             font-size: 1rem;
-            font-weight: 700;
             resize: vertical;
-            margin: 1rem 0;
-            font-family: inherit;
+            outline: none;
+            margin-bottom: 1rem;
         }
 
         textarea:focus {
-            outline: none;
-            border-color: var(--neon-green);
-            box-shadow: var(--shadow-glow-green);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
         }
 
-        .quiz-box {
-            background: var(--bg-card);
-            border: 1px solid var(--dark-border);
-            padding: 1.5rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .quiz-box p {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-
-        .quiz-box label {
-            display: block;
-            margin: 0.5rem 0;
-            padding: 0.6rem 0.8rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--dark-border);
-            font-weight: 700;
+        .btn-submit {
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink));
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-family: var(--font-heading);
+            font-weight: bold;
+            border-radius: 30px;
             cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+            transition: transform 0.2s;
         }
 
-        .quiz-box label:hover {
-            border-color: var(--neon-green);
-            color: var(--neon-green);
+        .btn-submit:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 0, 127, 0.8);
         }
 
-        .alert-box {
-            background: rgba(0, 240, 255, 0.1);
-            color: var(--text-main);
-            border-left: 4px solid var(--neon-cyan);
-            padding: 1.5rem;
+        #mensagem-acolhimento {
+            display: none;
             margin-top: 1.5rem;
-            box-shadow: var(--shadow-glow-cyan);
+            padding: 1.5rem;
+            background: rgba(57, 255, 20, 0.1);
+            border: 1px solid var(--neon-green);
+            border-radius: 8px;
+            color: var(--neon-green);
+            font-weight: 600;
         }
 
-        .hidden { display: none; }
+        .contatos-emergencia {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
 
-        /* Rodapé e Botão Topo */
+        .badge-contato {
+            background: rgba(157, 78, 221, 0.15);
+            border: 1px solid var(--neon-purple);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .badge-contato strong {
+            color: var(--neon-cyan);
+            display: block;
+            font-family: var(--font-heading);
+        }
+
+        /* ==========================================
+           5. QUIZ INTERATIVO
+           ========================================== */
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--neon-purple);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quiz-option:hover {
+            background: rgba(157, 78, 221, 0.2);
+            border-color: var(--neon-cyan);
+        }
+
+        .quiz-option.selected {
+            background: rgba(0, 240, 255, 0.2);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        #quiz-result {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(157, 78, 221, 0.2);
+            border-radius: 12px;
+            border: 2px solid var(--neon-green);
+        }
+
+        /* ==========================================
+           6. REFERÊNCIAS E RODAPÉ
+           ========================================== */
+        .ref-list {
+            list-style-type: none;
+        }
+
+        .ref-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .ref-list li::before {
+            content: "🍄";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .ref-list a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .ref-list a:hover {
+            text-decoration: underline;
+            text-shadow: 0 0 5px var(--neon-cyan);
+        }
+
         footer {
             text-align: center;
             padding: 2rem;
-            background: #000;
-            color: var(--text-muted);
-            font-family: 'Teko', sans-serif;
-            font-size: 1.3rem;
-            letter-spacing: 1px;
-            border-top: 1px solid var(--dark-border);
-            margin-top: 4rem;
+            border-top: 1px solid var(--neon-purple);
+            color: var(--text-dim);
+            font-size: 0.9rem;
         }
 
-        #btn-top {
+        /* Botão Voltar ao Topo */
+        #btn-topo {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: var(--neon-green);
-            color: #000;
+            bottom: 20px;
+            right: 20px;
+            background: var(--neon-pink);
+            color: white;
             border: none;
             width: 45px;
             height: 45px;
-            font-size: 1.5rem;
-            font-weight: 900;
+            border-radius: 50%;
             cursor: pointer;
-            box-shadow: var(--shadow-glow-green);
             display: none;
+            font-size: 1.2rem;
+            box-shadow: 0 0 15px var(--neon-pink);
+            z-index: 99;
         }
 
+        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            .header { flex-direction: column; gap: 1rem; }
-            .navbar ul { flex-wrap: wrap; justify-content: center; }
-            .hero h2 { font-size: 2.5rem; }
+            header { flex-direction: column; gap: 1rem; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="logo">⚡ ACOLHE_STREET</div>
-        <nav class="navbar">
+    <header>
+        <a href="#home" class="logo">
+            <span>🛸</span> NEBULOSA SUPPORT
+        </a>
+        <nav>
             <ul>
-                <li><a href="#" class="nav-link active" onclick="switchTab('inicio')">Início</a></li>
-                <li><a href="#" class="nav-link" onclick="switchTab('escuta')">Escuta</a></li>
-                <li><a href="#" class="nav-link" onclick="switchTab('quiz')">Quiz</a></li>
-                <li><a href="#" class="nav-link" onclick="switchTab('referencias')">Fontes</a></li>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#escuta">Escuta</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#referencias">Fontes</a></li>
             </ul>
         </nav>
-        <div class="tools">
-            <button id="btn-theme" title="Modo Escuro/Claro">🌙</button>
-            <button id="btn-font-inc">A+</button>
-            <button id="btn-font-dec">A-</button>
+        <div class="accessibility-bar">
+            <button class="btn-acc" onclick="alterarFonte(1)" title="Aumentar Fonte">A+</button>
+            <button class="btn-acc" onclick="alterarFonte(-1)" title="Diminuir Fonte">A-</button>
+            <button class="btn-acc" onclick="toggleContraste()" title="Alto Contraste">⚡ Contraste</button>
         </div>
     </header>
 
-    <main class="container">
+    <container>
 
-        <section id="inicio" class="tab-content active">
-            <div class="hero">
-                <span class="street-tag tag-pink">RESPEITO SEMPRE</span>
-                <h2>VISÃO DE CRIA & RESPEITO NA ESCOLA</h2>
-                <p>O bagulho é reto: ambiente escolar precisa de união e respeito. Aqui você encontra apoio e informação direta contra o bullying.</p>
-                <button class="btn-action" onclick="switchTab('escuta')">ACESSAR A ESCUTA 💬</button>
-            </div>
-
-            <div style="background: var(--bg-card); border: 1px solid var(--dark-border); padding: 1.5rem; margin-bottom: 2rem;">
-                <span class="street-tag tag-green">ENTENDA O PAPO</span>
-                <h2 style="font-family: 'Teko', sans-serif; font-size: 2.2rem; color: var(--neon-green); margin-top: 5px;">O QUE É BULLYING DE FATO?</h2>
-                <p style="color: var(--text-muted); font-weight: 700;">Bullying não é brincadeira nem tiração de onda inofensiva. É agressão física, verbal ou psicológica sistemática e repetida de propósito contra alguém.</p>
-            </div>
-            
-            <div class="grid-cards">
-                <div class="card">
-                    <span class="street-tag tag-cyan">FORMATO 01</span>
-                    <h3>🗣️ VERBAL</h3>
-                    <p style="color: var(--text-muted);">Apelidos pejorativos, ofensas diretas, chacotas e difamação em público.</p>
-                </div>
-                <div class="card">
-                    <span class="street-tag tag-pink">FORMATO 02</span>
-                    <h3>🚫 RELACIONAL</h3>
-                    <p style="color: var(--text-muted);">Exclusão proposital do grupo, espalhar fofocas e isolar o colega.</p>
-                </div>
-                <div class="card">
-                    <span class="street-tag tag-green">FORMATO 03</span>
-                    <h3>💥 FÍSICO</h3>
-                    <p style="color: var(--text-muted);">Empurrões, agressão física, danificar pertences ou intimidação corporal.</p>
-                </div>
+        <section id="home">
+            <div class="card">
+                <h1>Inclusão & Respeito às Diferenças</h1>
+                <p><strong>Bem-vindo ao Portal Nebulosa.</strong> Este é um ecossistema seguro e de acolhimento. Aqui, acreditamos que a diversidade é a verdadeira frequência que move o universo. Nenhuma forma de preconceito, bullying ou exclusão deve ter espaço na nossa jornada.</p>
+                <p>Seja você mesmo, explore seus caminhos e lembre-se: <em>mesmo na escuridão mais profunda, sempre haverá uma luz pronta para te guiar.</em></p>
             </div>
         </section>
 
-        <section id="escuta" class="tab-content">
-            <div style="background: var(--bg-card); border: 1px solid var(--dark-border); padding: 1.5rem; margin-bottom: 1.5rem;">
-                <span class="street-tag tag-cyan">MANDA A REAL</span>
-                <h2 style="font-family: 'Teko', sans-serif; font-size: 2.2rem; color: var(--neon-cyan); margin-top: 5px;">ESPAÇO DE DESABAFO SIMULADO</h2>
-                <p style="color: var(--text-muted); font-weight: 700;">Solta o verbo sem medo. Este formulário é 100% simulado: <strong>nenhum dado é salvo ou enviado.</strong></p>
-            </div>
+        <section id="escuta">
+            <div class="card">
+                <h2>Portal de Escuta 💬</h2>
+                <p>Precisa desabafar? Este espaço é 100% seguro. Escreva o que está sentindo no campo abaixo. <strong>Importante:</strong> Nenhuma informação digitada aqui é armazenada ou enviada para servidores.</p>
 
-            <form id="form-escuta">
-                <textarea id="desabafo" rows="5" placeholder="Escreva seu desabafo aqui..." required></textarea>
-                <button type="submit" class="btn-action">ENVIAR MENSAGEM 🚀</button>
-            </form>
+                <form id="form-escuta" onsubmit="enviarDesabafo(event)">
+                    <textarea id="texto-desabafo" placeholder="Digite aqui seus pensamentos, angústias ou desabafos..." required></textarea>
+                    <button type="submit" class="btn-submit">Transmitir Mensagem</button>
+                </form>
 
-            <div id="mensagem-acolhimento" class="alert-box hidden"></div>
+                <div id="mensagem-acolhimento">
+                    <p>✨ <strong>Sua mensagem foi ouvida pelo universo!</strong></p>
+                    <p>Lembre-se: Você não precisa carregar todo o peso do mundo sozinho(a). Se as coisas estiverem difíceis, procure um amigo, um professor de confiança, a equipe pedagógica ou sua família.</p>
+                </div>
 
-            <div style="margin-top: 3rem;">
-                <h3 style="font-family: 'Teko', sans-serif; font-size: 2rem; color: var(--neon-green);">COMO BUSCAR AJUDA REAL?</h3>
-                <div class="grid-cards">
-                    <div class="card">
-                        <span class="street-tag tag-green">NA ESCOLA</span>
-                        <h3>👨‍🏫 PROFESSORES E DIREÇÃO</h3>
-                        <p style="color: var(--text-muted);">Converse com a coordenação ou aquele professor ponta firme. Eles têm obrigação de intervir!</p>
+                <div class="contatos-emergencia">
+                    <div class="badge-contato">
+                        <strong>CVV (Apoio Emocional)</strong>
+                        <span>Disque 188 (Gratuito)</span>
                     </div>
-                    <div class="card">
-                        <span class="street-tag tag-pink">LIGAÇÃO GRÁTIS</span>
-                        <h3>📞 CANAIS OFICIAIS</h3>
-                        <p style="color: var(--text-muted);"><strong>Disque 100</strong> (Direitos Humanos)<br><strong>Disque 188</strong> (CVV - Apoio Emocional)</p>
+                    <div class="badge-contato">
+                        <strong>Direitos Humanos</strong>
+                        <span>Disque 100</span>
+                    </div>
+                    <div class="badge-contato">
+                        <strong>SaferNet (Segurança Digital)</strong>
+                        <span>safernet.org.br</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="quiz" class="tab-content">
-            <div style="background: var(--bg-card); border: 1px solid var(--dark-border); padding: 1.5rem; margin-bottom: 1.5rem;">
-                <span class="street-tag tag-pink">TESTE DE ATITUDE</span>
-                <h2 style="font-family: 'Teko', sans-serif; font-size: 2.2rem; color: var(--neon-pink); margin-top: 5px;">QUIZ DE RESPEITO</h2>
-                <p style="color: var(--text-muted); font-weight: 700;">Responda às 5 questões e confira qual é a visão correta nas situações de escola.</p>
-            </div>
+        <section id="quiz">
+            <div class="card">
+                <h2>Quiz Interativo: Consciência & Respeito 🧠</h2>
+                <p>Teste seus conhecimentos sobre respeito, empatia e inclusão no ambiente escolar (5 perguntas):</p>
 
-            <form id="quiz-form">
-                <div class="quiz-box">
-                    <p>1. Zombar da aparência de um colega repetidamente é:</p>
-                    <label><input type="radio" name="q1" value="a"> Zueira normal da galera</label>
-                    <label><input type="radio" name="q1" value="b"> Bullying verbal desrespeitoso</label>
-                    <label><input type="radio" name="q1" value="c"> Apenas brincadeira inofensiva</label>
+                <div id="quiz-container">
+                    </div>
+
+                <div style="margin-top: 1.5rem;" id="btn-quiz-wrapper">
+                    <button class="btn-submit" onclick="calcularResultadoQuiz()">Finalizar Quiz</button>
                 </div>
 
-                <div class="quiz-box">
-                    <p>2. Se presenciar alguém sofrendo agressão ou humilhação, o certo é:</p>
-                    <label><input type="radio" name="q2" value="a"> Gravar vídeo para postar na internet</label>
-                    <label><input type="radio" name="q2" value="b"> Fingir que não viu nada</label>
-                    <label><input type="radio" name="q2" value="c"> Comunicar imediatamente um responsável ou professor</label>
-                </div>
-
-                <div class="quiz-box">
-                    <p>3. Isolar propositalmente um colega dos grupos de trabalho é:</p>
-                    <label><input type="radio" name="q3" value="a"> Bullying relacional/social</label>
-                    <label><input type="radio" name="q3" value="b"> Direito de escolher os amigos</label>
-                    <label><input type="radio" name="q3" value="c"> Algo sem impacto emocional</label>
-                </div>
-
-                <div class="quiz-box">
-                    <p>4. Qual atitude fortalece o respeito na convivência escolar?</p>
-                    <label><input type="radio" name="q4" value="a"> Escutar e respeitar as diferenças dos outros</label>
-                    <label><input type="radio" name="q4" value="b"> Rir quando alguém comete um erro na sala</label>
-                    <label><input type="radio" name="q4" value="c"> Inventar histórias e fofocas sobre os outros</label>
-                </div>
-
-                <div class="quiz-box">
-                    <p>5. Se você for o alvo de bullying na escola, qual a melhor atitude?</p>
-                    <label><input type="radio" name="q5" value="a"> Guardar tudo para si e sofrer sozinho</label>
-                    <label><input type="radio" name="q5" value="b"> Procurar apoio de adultos de confiança</label>
-                    <label><input type="radio" name="q5" value="c"> Partir para a violência física</label>
-                </div>
-
-                <button type="button" onclick="calcularQuiz()" class="btn-action">CHECAR RESULTADO ⚡</button>
-            </form>
-
-            <div id="resultado-quiz" class="alert-box hidden"></div>
-        </section>
-
-        <section id="referencias" class="tab-content">
-            <div style="background: var(--bg-card); border: 1px solid var(--dark-border); padding: 1.5rem; margin-bottom: 1.5rem;">
-                <span class="street-tag tag-green">INFORMAÇÃO SEGURA</span>
-                <h2 style="font-family: 'Teko', sans-serif; font-size: 2.2rem; color: var(--neon-green); margin-top: 5px;">FONTES OFICIAIS CONSULTADAS</h2>
-                <p style="color: var(--text-muted); font-weight: 700;">Pesquisa fundamentada em instituições reconhecidas:</p>
-            </div>
-
-            <div class="grid-cards">
-                <div class="card">
-                    <span class="street-tag tag-cyan">EDUCACIONAL</span>
-                    <h3>MINISTÉRIO DA EDUCAÇÃO</h3>
-                    <p style="color: var(--text-muted);">Diretrizes e materiais educativos de combate à violência no ambiente escolar.</p>
-                </div>
-                <div class="card">
-                    <span class="street-tag tag-pink">SEGURA NA REDE</span>
-                    <h3>SAFERNET BRASIL</h3>
-                    <p style="color: var(--text-muted);">Orientações sobre cidadania digital, segurança na internet e cyberbullying.</p>
-                </div>
-                <div class="card">
-                    <span class="street-tag tag-green">SUPORTE 24H</span>
-                    <h3>CENTRO DE VALORIZAÇÃO DA VIDA</h3>
-                    <p style="color: var(--text-muted);">Atendimento voluntário e gratuito de suporte emocional via Disque 188.</p>
+                <div id="quiz-result">
+                    <h3 id="score-text" style="color: var(--neon-green);"></h3>
+                    <p id="score-details"></p>
+                    <button class="btn-submit" onclick="reiniciarQuiz()" style="margin-top: 1rem;">Tentar Novamente</button>
                 </div>
             </div>
         </section>
 
-    </main>
+        <section id="referencias">
+            <div class="card">
+                <h2>Fontes Confiáveis & Referências 📚</h2>
+                <p>Todo o conteúdo deste portal foi baseado em materiais oficiais e instituições de referência em saúde mental e direitos humanos:</p>
+                
+                <ul class="ref-list">
+                    <li>
+                        <strong>Ministério da Educação (MEC):</strong> Cartilhas sobre Inclusão e Combate ao Bullying nas Escolas. 
+                        <br><a href="https://www.gov.br/mec" target="_blank">gov.br/mec</a>
+                    </li>
+                    <li>
+                        <strong>SaferNet Brasil:</strong> Orientação sobre cidadania e segurança no ambiente digital.
+                        <br><a href="https://new.safernet.org.br" target="_blank">safernet.org.br</a>
+                    </li>
+                    <li>
+                        <strong>UNICEF Brasil:</strong> Promoção dos direitos de crianças e adolescentes e prevenção da violência.
+                        <br><a href="https://www.unicef.org/brazil/" target="_blank">unicef.org/brazil</a>
+                    </li>
+                    <li>
+                        <strong>CVV - Centro de Valorização da Vida:</strong> Atendimento voluntário e gratuito de apoio emocional.
+                        <br><a href="https://www.cvv.org.br" target="_blank">cvv.org.br</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-    <button id="btn-top" onclick="scrollToTop()">↑</button>
+    </container>
 
     <footer>
-        <p>⚡ ACOLHE_STREET — PROJETO INDIVIDUAL DE APOIO AO ESTUDANTE ⚡</p>
+        <p>Portal de Apoio ao Estudante — Desenvolvido para fins educativos.</p>
+        <p style="color: var(--neon-green); font-family: var(--font-heading); margin-top: 5px;">"A empatia é a frequência mais alta do universo."</p>
     </footer>
 
+    <button id="btn-topo" onclick="voltarAoTopo()" title="Voltar ao Topo">↑</button>
+
     <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            
-            const activeLink = Array.from(document.querySelectorAll('.nav-link'))
-                .find(a => a.getAttribute('onclick').includes(tabId));
-            if (activeLink) activeLink.classList.add('active');
+        /* --------------------------------------------------
+           A. ACESSIBILIDADE & UTILITÁRIOS
+           -------------------------------------------------- */
+        let fontScale = 100;
 
+        function alterarFonte(delta) {
+            fontScale += delta * 5;
+            if (fontScale < 85) fontScale = 85;
+            if (fontScale > 130) fontScale = 130;
+            document.documentElement.style.fontSize = fontScale + "%";
+        }
+
+        function toggleContraste() {
+            document.body.classList.toggle('high-contrast');
+        }
+
+        // Botão Voltar ao topo
+        const btnTopo = document.getElementById("btn-topo");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btnTopo.style.display = "block";
+            } else {
+                btnTopo.style.display = "none";
+            }
+        };
+
+        function voltarAoTopo() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        document.getElementById('btn-theme').addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
+        /* --------------------------------------------------
+           B. PORTAL DE ESCUTA
+           -------------------------------------------------- */
+        function enviarDesabafo(event) {
+            event.preventDefault(); // Impede o recarregamento
+            const textarea = document.getElementById('texto-desabafo');
+            const mensagem = document.getElementById('mensagem-acolhimento');
 
-        let fontSize = 100;
-        document.getElementById('btn-font-inc').addEventListener('click', () => {
-            if (fontSize < 125) { fontSize += 5; document.body.style.fontSize = fontSize + '%'; }
-        });
-        document.getElementById('btn-font-dec').addEventListener('click', () => {
-            if (fontSize > 85) { fontSize -= 5; document.body.style.fontSize = fontSize + '%'; }
-        });
-
-        window.addEventListener('scroll', () => {
-            const btnTop = document.getElementById('btn-top');
-            btnTop.style.display = window.scrollY > 200 ? 'block' : 'none';
-        });
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (textarea.value.trim() !== "") {
+                mensagem.style.display = "block";
+                textarea.value = ""; // Limpa a área sem salvar dados
+                mensagem.scrollIntoView({ behavior: 'smooth' });
+            }
         }
 
-        document.getElementById('form-escuta').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const msgBox = document.getElementById('mensagem-acolhimento');
-            msgBox.classList.remove('hidden');
-            msgBox.innerHTML = `
-                <h3 style="font-family: 'Teko', sans-serif; font-size: 1.8rem; color: var(--neon-cyan);">MENSAGEM ENVIADA COM SUCESSO! ⚡</h3>
-                <p>Tamo junto! Lembre-se de que sua voz tem força e você não precisa guardar nada sozinho(a). Procure apoio com adultos de confiança!</p>
-                <small style="color: var(--text-muted);">*Esta é uma demonstração interativa. Nenhum dado foi armazenado.</small>
-            `;
-            document.getElementById('form-escuta').reset();
-        });
+        /* --------------------------------------------------
+           C. QUIZ INTERATIVO (5 PERGUNTAS)
+           -------------------------------------------------- */
+        const perguntasQuiz = [
+            {
+                pergunta: "1. Fazer piadas constantes sobre a aparência de um colega, mesmo que ele peça para parar, é considerado:",
+                opcoes: ["Brincadeira inofensiva", "Bullying / Assédio moral", "Forma de enturmar", "Comportamento normal"],
+                correta: 1
+            },
+            {
+                pergunta: "2. O que fazer ao presenciar um colega sendo excluído ou sofrendo preconceito?",
+                opcoes: ["Ignorar para não arrumar confusão", "Rir junto para se enturmar", "Acolher o colega e avisar um adulto de confiança", "Gravar um vídeo e postar nas redes"],
+                correta: 2
+            },
+            {
+                pergunta: "3. O termo 'Cyberbullying' se refere a:",
+                opcoes: ["Jogar games online em grupo", "Praticar violência verbal ou psicológica na internet", "Criar senhas fortes", "Estudar usando o computador"],
+                correta: 1
+            },
+            {
+                pergunta: "4. A inclusão no ambiente escolar significa:",
+                opcoes: ["Tratar todos exatamente igual ignorando necessidades especiais", "Garantir que todos tenham acesso, respeito e oportunidades iguais", "Separar alunos por categorias", "Forçar todos a gostarem das mesmas coisas"],
+                correta: 1
+            },
+            {
+                pergunta: "5. Se você estiver passando por um momento difícil e triste, a melhor atitude é:",
+                opcoes: ["Guardar tudo para si", "Procurar apoio com amigos, escola, família ou CVV (188)", "Descontar a raiva nos outros", "Faltar das aulas sem avisar"],
+                correta: 1
+            }
+        ];
 
-        function calcularQuiz() {
-            const gabarito = { q1: 'b', q2: 'c', q3: 'a', q4: 'a', q5: 'b' };
-            let pontos = 0;
-            const form = document.getElementById('quiz-form');
+        let respostasUsuario = Array(perguntasQuiz.length).fill(null);
 
-            for (let q in gabarito) {
-                const checked = form.querySelector(`input[name="${q}"]:checked`);
-                if (checked && checked.value === gabarito[q]) {
-                    pontos++;
-                }
+        function renderizarQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = "";
+
+            perguntasQuiz.forEach((q, qIndex) => {
+                const qDiv = document.createElement('div');
+                qDiv.style.marginBottom = "1.5rem";
+                
+                const qTitle = document.createElement('h3');
+                qTitle.style.fontSize = "1.1rem";
+                qTitle.style.color = "var(--neon-cyan)";
+                qTitle.innerText = q.pergunta;
+                qDiv.appendChild(qTitle);
+
+                q.opcoes.forEach((opcao, oIndex) => {
+                    const optDiv = document.createElement('div');
+                    optDiv.className = `quiz-option ${respostasUsuario[qIndex] === oIndex ? 'selected' : ''}`;
+                    optDiv.innerText = opcao;
+                    optDiv.onclick = () => selecionarOpcao(qIndex, oIndex);
+                    qDiv.appendChild(optDiv);
+                });
+
+                container.appendChild(qDiv);
+            });
+        }
+
+        function selecionarOpcao(qIndex, oIndex) {
+            respostasUsuario[qIndex] = oIndex;
+            renderizarQuiz();
+        }
+
+        function calcularResultadoQuiz() {
+            // Verificar se respondeu tudo
+            if (respostasUsuario.includes(null)) {
+                alert("Por favor, responda a todas as 5 perguntas antes de finalizar!");
+                return;
             }
 
-            const resBox = document.getElementById('resultado-quiz');
-            resBox.classList.remove('hidden');
-            resBox.innerHTML = `
-                <h3 style="font-family: 'Teko', sans-serif; font-size: 2rem; color: var(--neon-green);">RESULTADO: ${pontos} / 5 ACERTOS!</h3>
-                <p>${pontos === 5 ? 'AÍ SIM! Você tem a visão completa de respeito e ajuda mútua no colégio! 🏆' : 'BOM TRABALHO! Continue ligado(a) nas atitudes e fortalecendo o respeito no dia a dia. 👊'}</p>
-            `;
+            let acertos = 0;
+            respostasUsuario.forEach((resposta, index) => {
+                if (resposta === perguntasQuiz[index].correta) {
+                    acertos++;
+                }
+            });
+
+            document.getElementById('quiz-container').style.display = "none";
+            document.getElementById('btn-quiz-wrapper').style.display = "none";
+            
+            const resultDiv = document.getElementById('quiz-result');
+            const scoreText = document.getElementById('score-text');
+            const scoreDetails = document.getElementById('score-details');
+
+            resultDiv.style.display = "block";
+            scoreText.innerText = `Você acertou ${acertos} de ${perguntasQuiz.length} perguntas!`;
+
+            if (acertos === 5) {
+                scoreDetails.innerText = "Excelente! Você é um verdadeiro embaixador do respeito e da empatia!";
+            } else if (acertos >= 3) {
+                scoreDetails.innerText = "Muito bom! Você compreende bem a importância do respeito e da inclusão.";
+            } else {
+                scoreDetails.innerText = "Vale a pena revisar os conteúdos do portal para aprender mais sobre empatia e apoio mútuo.";
+            }
         }
+
+        function reiniciarQuiz() {
+            respostasUsuario = Array(perguntasQuiz.length).fill(null);
+            document.getElementById('quiz-result').style.display = "none";
+            document.getElementById('quiz-container').style.display = "block";
+            document.getElementById('btn-quiz-wrapper').style.display = "block";
+            renderizarQuiz();
+        }
+
+        // Inicializa o Quiz ao carregar a página
+        renderizarQuiz();
     </script>
 </body>
 </html>
